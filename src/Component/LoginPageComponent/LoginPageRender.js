@@ -33,8 +33,8 @@ const LoginPageRender = (props) => {
           value={username}
           onChange={updateLoginData}
           required
-          inputProps={{ style: { fontSize: 20 } }} // font size of input text
-          InputLabelProps={{ style: { fontSize: 21 } }}
+          inputProps={{ style: { fontSize: 16 } }} // font size of input text
+          InputLabelProps={{ style: { fontSize: 18 } }}
         />
         <TextField
           id="standard-secondary"
@@ -45,8 +45,8 @@ const LoginPageRender = (props) => {
           name="password"
           value={password}
           onChange={updateLoginData}
-          inputProps={{ style: { fontSize: 20 } }} // font size of input text
-          InputLabelProps={{ style: { fontSize: 21 } }}
+          inputProps={{ style: { fontSize: 16 } }} // font size of input text
+          InputLabelProps={{ style: { fontSize: 18 } }}
           required
           InputProps={{
             // <-- This is where the toggle button is added.

@@ -7,14 +7,14 @@ const AlertComponent = (props) => {
   const { onChanged, serviceData, token } = props;
   const [serverIsSelected, setServerSelected] = useState(false);
   const [alertList, setAlertList] = useState([]);
-  const[loading ,setLoading]=useState(false) ;
+  const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState({
     id: "",
     name: "",
   });
   useEffect(() => {
     const getAlertList = async () => {
-      setLoading(true) ;
+      setLoading(true);
       try {
         const resp = await axios({
           method: "GET",
@@ -27,13 +27,13 @@ const AlertComponent = (props) => {
       } catch (err) {
         console.error(err);
       }
-      setLoading(false) ;
+      setLoading(false);
     };
-   getAlertList();
-   setSelected({
-    id: "",
-    name: "",
-  }) ;
+    getAlertList();
+    setSelected({
+      id: "",
+      name: "",
+    });
     // eslint-disable-next-line
   }, [serviceData.serverName]);
 
@@ -58,7 +58,7 @@ const AlertComponent = (props) => {
 
   return (
     <div className="col-lg-2 second">
-    <LoadingSpinner loading={loading}/>
+      <LoadingSpinner loading={loading} />
       <div className="radio-container">
         {alertList.map((alert) => (
           <Radio
@@ -68,17 +68,17 @@ const AlertComponent = (props) => {
             selected={selected}
             text={alert.alertName}
             onChange={setSelected}
-            first={alert===alertList[0]}
+            first={alert === alertList[0]}
           />
         ))}
       </div>
-      {!serverIsSelected && selected.id && (
-        <div>
-        <p className="error-occured" style={{ marginTop: 8 }}>
-          Please select server first.
-        </p>
-        </div>
-      )}
+      <div className="error-occured">
+        {!serverIsSelected && selected.id && (
+          <p  style={{ marginTop: 8 }}>
+            Please select server first.
+          </p>
+        )}
+      </div>
     </div>
   );
 };

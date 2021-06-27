@@ -10,8 +10,8 @@ const ServerPage = (props) => {
       <div className="col-xxl-2">
         <img src={logo} className="logo-png" alt="logo" />
         <div className="Logout-div-outer" onClick={props.logout}>
-          <Button variant="contained" color="primary" style={{ textTransform: "none", fontSize: 20 }}>
-            <ExitToAppIcon fontSize="large" />
+          <Button variant="contained" color="primary" style={{ textTransform: "none", fontSize: 12 }}>
+            <ExitToAppIcon fontSize="small" />
             Logout
           </Button>
         </div>

@@ -148,7 +148,7 @@ const ScriptComponent = (props) => {
         )}
         <Button
           variant="contained"
-          size="large"
+          size="small"
           color="primary"
           type="submit"
           className="script-submit-btn"

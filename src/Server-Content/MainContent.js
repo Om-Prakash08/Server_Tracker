@@ -30,9 +30,11 @@ const MainContent = (props) => {
 
   return (
     <div className="col-xxl-10 containt">
+     <div className="containt-heading-div">
       <h1 className="containt-heading">L2 Automation Mapper</h1>
+      </div>
       <div className="Logout-div" onClick={logout}>
-        <Button style={{textTransform: 'none' ,fontSize:20}}><ExitToAppIcon fontSize="large"/>Logout</Button>
+        <Button style={{textTransform: 'none' ,fontSize:18}}><ExitToAppIcon fontSize="large"/>Logout</Button>
       </div>
       <div className="row three-part-outer-div">
         <ServerComponent token={token} setServiceData={setServiceAlertData} serviceData={serviceAlertData} />

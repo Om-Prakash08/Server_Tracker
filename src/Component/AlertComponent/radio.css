@@ -1,7 +1,7 @@
 
 .radio-container {
   overflow: auto;
-  height:65vh ;
+  height:62vh ;
 }
 .radio-container::-webkit-scrollbar {
   width: 2px;
@@ -18,7 +18,7 @@
   cursor: pointer;
   user-select: none;
   display: flex;
-  height: 5.3rem;
+  height: 4.3rem;
   align-items: center;
   z-index: 1;
   padding-left: 0.8rem;
@@ -31,10 +31,8 @@
 
 
 .radio-outer-circle {
-  width: 23px;
-  height: 23px;
-  min-width: 23px;
-  min-height: 23px;
+  width: 20px;
+  height: 20px;
   border: 2px solid red;
   border-radius: 50%;
   display: flex;
@@ -45,8 +43,8 @@
 }
 
 .radio-inner-circle {
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: red;
   transition: all 0.1s linear;

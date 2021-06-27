@@ -16,7 +16,7 @@ const ServiceRenderPage = (props) => {
   const customStyles = {
     control: base => ({
       ...base,
-      height: 50,
+      height: 43,
     })
   };
   return (
