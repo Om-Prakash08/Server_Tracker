@@ -17,7 +17,7 @@
 
 .login-error {
   color: red;
-  left: 20%;
+  left: 22%;
   bottom: 12%;
   position: absolute;
 }
@@ -32,6 +32,8 @@
     font-size: 0.7rem !important;
   }
   .login-error {
-    bottom: 0.5%;
+    bottom: 0;
+    left: 20%;
+    text-align: left;
   }
 }
