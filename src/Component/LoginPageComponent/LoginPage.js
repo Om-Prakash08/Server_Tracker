@@ -49,6 +49,7 @@ const LoginPage = (props) => {
       }
     };
     setLoading(true);
+    setErr("") ;
     sendAuthData();
   }
 
