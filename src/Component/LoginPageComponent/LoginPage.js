@@ -41,7 +41,7 @@ const LoginPage = (props) => {
           `${process.env.REACT_APP_SECRET_KEY}`
         ).toString();
         localStorage.setItem("userData", ciphertext);
-        
+        //localStorage.setItem("userData", JSON.stringify(data));
       } catch (err) {
         if (err.response && err.response.status === 400)
           setErr("Invalid Username or password.");
@@ -49,7 +49,7 @@ const LoginPage = (props) => {
       }
     };
     setLoading(true);
-    setErr("") ;
+    setErr("");
     sendAuthData();
   }
 
@@ -59,7 +59,8 @@ const LoginPage = (props) => {
       const bytes = CryptoJS.AES.decrypt(
         data,
         `${process.env.REACT_APP_SECRET_KEY}`
-      ); if (bytes.sigBytes === 223) {
+      ); console.log(bytes) ;
+      if (bytes.sigBytes === 246) {
            const storedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
            //const storedData = JSON.parse(localStorage.getItem("userData"));
              if (
@@ -72,14 +73,22 @@ const LoginPage = (props) => {
                   }
            }
     } // eslint-disable-next-line
+    // const storedData = JSON.parse(data);
+    // if (
+    //   storedData &&
+    //   storedData.token &&
+    //   new Date(storedData.expiration) > new Date()
+    // ) {
+    //   props.onAuth(storedData.token);
+    //   props.setTime(storedData.expiration);
+    // }
     setCheckToken(true);
-   // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [props]);
 
-  useEffect(()=>{
-    if(err)
-      setLoading(false);
-  },[err])
+  useEffect(() => {
+    if (err) setLoading(false);
+  }, [err]);
 
   const updateLoginData = (event) =>
     setLoginData({
@@ -91,7 +100,7 @@ const LoginPage = (props) => {
     <div>
       {!checkToken ? (
         <LoadingSpinner loading={true} />
-      ):(
+      ) : (
         <LoginPageRender
           loading={loading}
           handleSubmit={handleSubmit}
@@ -100,7 +109,7 @@ const LoginPage = (props) => {
           password={password}
           err={err}
         />
-      ) }
+      )}
     </div>
   );
 };
