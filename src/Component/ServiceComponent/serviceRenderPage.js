@@ -47,9 +47,9 @@ const ServiceRenderPage = (props) => {
         </div>
         <br />
         <div className="select-div">
-          <b style={{ margin: 4 }}>Service Group</b>
+          <b style={{ margin: 4 }}>Server Group</b>
           <Select
-            placeholder="Select Service Group"
+            placeholder="Select Server Group"
             value={group}
             options={groupList}
             onChange={handleGroupChange}

@@ -1,5 +1,5 @@
 import axios from "axios";
-const getServiceList = async (setServiceList,token,setLoading) => {
+const getServiceList = async (setServiceList,token,setLoading,setInValidity) => {
   setLoading(true) ;
   try {
     const resp = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/service/`, {
@@ -9,7 +9,8 @@ const getServiceList = async (setServiceList,token,setLoading) => {
     });
     setServiceList(resp.data);
   } catch (err) {
-    console.error(err);
+     if(err.response.status===401)
+       setInValidity(true) ;
   }
   setLoading(false) ;
 };
@@ -30,7 +31,7 @@ const getGroupList = async (setGroupList, service,token,setLoading) => {
     });
     setGroupList(resp.data);
   } catch (err) {
-    console.error(err);
+    //console.error(err);
   }
   setLoading(false) ;
 };
@@ -51,7 +52,7 @@ const getServerList = async (setServerList, group,token,setLoading) => {
     });
     setServerList(resp.data);
   } catch (err) {
-    console.error(err);
+    //console.error(err);
   }
   setLoading(false) ;
 };

@@ -37,7 +37,7 @@ const MainContent = (props) => {
         <Button style={{textTransform: 'none' ,fontSize:18}}><ExitToAppIcon fontSize="default"/>Logout</Button>
       </div>
       <div className="row three-part-outer-div">
-        <ServerComponent token={token} setServiceData={setServiceAlertData} serviceData={serviceAlertData} />
+        <ServerComponent token={token} setServiceData={setServiceAlertData} serviceData={serviceAlertData} logout={logout} />
         <AlertComponent
           token={token}
           serverIsSelected={serverSelected}

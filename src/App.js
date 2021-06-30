@@ -30,7 +30,7 @@ function App() {
   if (Token) {
     routes = <ServerPage token={Token} logout={logout} />;
   } else {
-    routes = <LoginPage onAuth={setToken} setTime={setTokenExpirationDate} token={Token} />;
+    routes = <LoginPage onAuth={setToken} setTime={setTokenExpirationDate}  />;
   }
 
   return (

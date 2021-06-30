@@ -42,6 +42,7 @@
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   background-color: rgba(238, 235, 235, 0.253);
+  z-index: 40;
 }
 .third {
   padding: 1rem 0 1.5rem;
@@ -97,9 +98,9 @@
     font-size: 2rem;
     margin-bottom: 0;
   }
-  .containt-heading-div{
+  /* .containt-heading-div{
     text-align: center;
-  }
+  } */
   .first,
   .second,
   .third {

@@ -95,7 +95,7 @@ const ScriptComponent = (props) => {
         </h1>
       </div>
       <form onSubmit={handleSubmit}>
-        {fetching ? (
+        {fetching  ? (
           <div className="fetching-spinner">
             <CircularProgress />
           </div>

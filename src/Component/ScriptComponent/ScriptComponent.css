@@ -18,7 +18,7 @@
   margin-bottom: 20px;
 }
 .fetching-spinner{
-  height: 45vh;
+  height: 51vh;
   padding-left: 15px;
   padding-top: 15px;
   margin-bottom: 20px;
@@ -71,13 +71,12 @@ textarea {
   outline: none;
   border: none;
   box-sizing: border-box;
-  /* background: #ecf0f3; */
   padding: 4px 13px 0;
   padding-right: 40px;
   font-size:1rem;
   border-radius: 10px;
   border:1px solid rgb(196, 195, 195) ;
-  /* box-shadow: inset 6px 3px 6px #cbced1, inset -6px -6px 6px white; */
+  
 }
 textarea::-webkit-scrollbar {
   width:1px;

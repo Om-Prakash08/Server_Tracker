@@ -25,7 +25,7 @@ const AlertComponent = (props) => {
         });
         setAlertList(resp.data);
       } catch (err) {
-        console.error(err);
+        //console.error(err);
       }
       setLoading(false);
     };

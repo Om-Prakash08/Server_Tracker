@@ -4,27 +4,29 @@ import ServiceRenderPage from "./serviceRenderPage";
 import { getServiceList, getGroupList, getServerList } from "./fetchServerList";
 
 const ServerComponent = (props) => {
-  const { setServiceData, serviceData ,token } = props;
+  const { setServiceData, serviceData, token, logout } = props;
   const [service, setService] = useState(null);
   const [serviceList, setServiceList] = useState([]);
   const [group, setGroup] = useState(null);
   const [groupList, setGroupList] = useState([]);
   const [server, setServer] = useState(null);
   const [serverList, setServerList] = useState([]);
-  const [loading, setLoading]=useState(false) ;
-
+  const [loading, setLoading] = useState(false);
+  const [invalidToken, setInValidity] = useState(false);
   useEffect(() => {
-    
-    getServiceList(setServiceList,token,setLoading);
-  
+    getServiceList(setServiceList, token, setLoading, setInValidity);
+
     // eslint-disable-next-line
   }, []);
+  useEffect(() => {
+    if (invalidToken) logout();
+    // eslint-disable-next-line
+  }, [invalidToken]);
 
   useEffect(() => {
     if (service) {
-      
-      getGroupList(setGroupList, service,token,setLoading);
-     
+      getGroupList(setGroupList, service, token, setLoading);
+
       setServiceData({
         serviceId: service.serviceId,
         serviceName: service.ServiceName,
@@ -51,9 +53,8 @@ const ServerComponent = (props) => {
 
   useEffect(() => {
     if (group) {
-  
-      getServerList(setServerList, group,token,setLoading);
-     
+      getServerList(setServerList, group, token, setLoading);
+
       setServiceData({
         ...serviceData,
         groupId: group.serverGrpId,
@@ -74,7 +75,7 @@ const ServerComponent = (props) => {
         alertName: "",
       });
       setServerList([]);
-      setServer(null) ;
+      setServer(null);
     }
     // eslint-disable-next-line
   }, [group]);
@@ -127,7 +128,7 @@ const ServerComponent = (props) => {
       server={server}
       serverList={serverList}
       handleServerChange={handleServerChange}
-      loading ={loading}
+      loading={loading}
     />
   );
 };

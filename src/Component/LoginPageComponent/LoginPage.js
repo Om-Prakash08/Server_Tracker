@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CryptoJS from "crypto-js";
 import LoginPageRender from "./LoginPageRender";
 import LoadingSpinner from "../loadingSpinner";
 
@@ -25,9 +24,6 @@ const LoginPage = (props) => {
             email: username,
             password,
           },
-          headers: {
-            "x-auth-token": props.token,
-          },
         });
         const tokenExpirationDate = new Date().getTime() + 1000 * 60 * 60;
         const data = {
@@ -36,12 +32,7 @@ const LoginPage = (props) => {
         };
         props.setTime(tokenExpirationDate);
         props.onAuth(resp.data);
-        var ciphertext = CryptoJS.AES.encrypt(
-          JSON.stringify(data),
-          `${process.env.REACT_APP_SECRET_KEY}`
-        ).toString();
-        localStorage.setItem("userData", ciphertext);
-        //localStorage.setItem("userData", JSON.stringify(data));
+        localStorage.setItem("userData", JSON.stringify(data));
       } catch (err) {
         if (err.response && err.response.status === 400)
           setErr("Invalid Username or password.");
@@ -54,34 +45,15 @@ const LoginPage = (props) => {
   }
 
   useEffect(() => {
-    const data = localStorage.getItem("userData");
-    if (data) {
-      const bytes = CryptoJS.AES.decrypt(
-        data,
-        `${process.env.REACT_APP_SECRET_KEY}`
-      ); console.log(bytes) ;
-      if (bytes.sigBytes === 246) {
-           const storedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-           //const storedData = JSON.parse(localStorage.getItem("userData"));
-             if (
-               storedData &&
-               storedData.token &&
-              new Date(storedData.expiration) > new Date()
-                ) {
-                     props.onAuth(storedData.token);
-                     props.setTime(storedData.expiration);
-                  }
-           }
-    } // eslint-disable-next-line
-    // const storedData = JSON.parse(data);
-    // if (
-    //   storedData &&
-    //   storedData.token &&
-    //   new Date(storedData.expiration) > new Date()
-    // ) {
-    //   props.onAuth(storedData.token);
-    //   props.setTime(storedData.expiration);
-    // }
+    const storedData = JSON.parse(localStorage.getItem("userData"));
+    if (
+      storedData &&
+      storedData.token &&
+      new Date(storedData.expiration) > new Date()
+    ) {
+      props.onAuth(storedData.token);
+      props.setTime(storedData.expiration);
+    }
     setCheckToken(true);
     // eslint-disable-next-line
   }, [props]);

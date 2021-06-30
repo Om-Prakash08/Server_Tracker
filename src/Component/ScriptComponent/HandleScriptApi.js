@@ -26,7 +26,7 @@ const getScriptValue = async (setInputFields, serverId, alertId, token,setfetchi
       setInputFields([{ script: "" }]);
     }
   } catch (err) {
-    console.error(err);
+   // console.error(err);
   }
   setfetching(false) ;
 };
@@ -50,12 +50,12 @@ const sendScriptValue = async (
       headers: {
         "x-auth-token": token,
       },
-    });
-    console.log(resp.data);
+    }); 
+    console.log(resp) ;
     setSuccess(true);
   } catch (err) {
     if (err) setApiError(true);
-    console.error(err);
+    //console.error(err);
   }
   SetSending(false);
   setLoading(false) ;
