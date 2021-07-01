@@ -72,6 +72,12 @@
   position: absolute;
   right: 17.5%;
   top: 8%;
+}  
+.Jenkins a ,.Grafana-dashboard a{
+  color: black;
+} 
+a:hover{
+  color:rgb(5, 5, 219) ;
 }
 .Logout-div-outer {
   display: none;
