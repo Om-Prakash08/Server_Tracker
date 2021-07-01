@@ -63,6 +63,16 @@
   right: 4.5%;
   top: 7%;
 }
+.Jenkins{
+  position: absolute;
+  right: 12.5%;
+  top: 8%;
+}
+.Grafana-dashboard{
+  position: absolute;
+  right: 17.5%;
+  top: 8%;
+}
 .Logout-div-outer {
   display: none;
 }
@@ -81,6 +91,9 @@
   .third {
     margin-top: 20px;
     border-radius: 15px;
+  }
+  .Grafana-dashboard,.Jenkins{
+    display: none ;
   }
 }
 @media screen and (max-width: 1400px) {
@@ -119,10 +132,20 @@
   .error-occured {
     margin-bottom: 10px;
   }
+  
+
 }
 @media screen and (max-width: 1400px) and (min-width: 992px) {
   .containt {
     padding-left: 4% !important;
     height: fit-content;
+  }
+  .Grafana-dashboard{
+    right: 14.5%;
+    top: 19%;
+  }
+  .Jenkins{
+    right: 7%;
+    top: 19%;
   }
 }

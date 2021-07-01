@@ -4,7 +4,7 @@ import ServiceRenderPage from "./serviceRenderPage";
 import { getServiceList, getGroupList, getServerList } from "./fetchServerList";
 
 const ServerComponent = (props) => {
-  const { setServiceData, serviceData, token, logout } = props;
+  const { setServiceData, serviceData, token, logout,setServiceName } = props;
   const [service, setService] = useState(null);
   const [serviceList, setServiceList] = useState([]);
   const [group, setGroup] = useState(null);
@@ -104,6 +104,7 @@ const ServerComponent = (props) => {
   // handle change event of the service dropdown
   const handleserviceChange = (obj) => {
     setService(obj);
+    setServiceName(obj.serviceName.toLowerCase())
     setGroup(null);
   };
 
