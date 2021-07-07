@@ -4,10 +4,11 @@ import axios from "axios";
 import LoadingSpinner from "../loadingSpinner";
 
 const AlertComponent = (props) => {
-  const { onChanged, serviceData, token } = props;
+  const { onChanged, serviceData, token} = props;
   const [serverIsSelected, setServerSelected] = useState(false);
   const [alertList, setAlertList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [err,setErr]=useState(false) ;
   const [selected, setSelected] = useState({
     id: "",
     name: "",
@@ -67,13 +68,15 @@ const AlertComponent = (props) => {
             value={alert.alertName}
             selected={selected}
             text={alert.alertName}
-            onChange={setSelected}
             first={alert === alertList[0]}
+            onChange={setSelected}
+            serverIsSelected={serverIsSelected}
+            setErr={setErr} 
           />
         ))}
       </div>
       <div className="error-occured">
-        {!serverIsSelected && selected.id && (
+        {!serverIsSelected && err &&(
           <p  style={{ marginTop: 8 }}>
             Please select server first.
           </p>

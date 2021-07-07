@@ -2,11 +2,14 @@ import React from "react";
 import "./radio.css";
 
 const Radio = (props) => {
-  const { selected, onChange, text, value, id,first } = props;
+  const { selected, onChange, text, value, id,first,serverIsSelected ,setErr} = props;
   return (
     <div className={`modern-radio-container ${value === selected.name && "selected-container"} ${first && "first-container"}`}
       onClick={() => {
-        onChange({ id: id, name: value });
+        if(serverIsSelected)
+         onChange({ id: id, name: value });
+        else
+          setErr(true) ;
       }}
     >   <div >
         <div className={`radio-outer-circle ${value !== selected.name && "unselected"}`}>

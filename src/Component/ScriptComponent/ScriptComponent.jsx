@@ -18,25 +18,22 @@ const ScriptComponent = (props) => {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fetching, setfetching] = useState(false);
-  const [inputFields, setInputFields] = useState([
-    { script: "" },
-    { script: "" },
-    { script: "" },
-    { script: "" },
-    { script: "" },
-  ]);
+  const [inputFields, setInputFields] = useState([]);
+  const [blur ,setBlur]=useState(false) ;
 
   useEffect(() => {
     if (serviceAlertData.alertName && serviceAlertData.serverName) {
+      setBlur(false) ;
       getScriptValue(
         setInputFields,
         serviceAlertData.serverId,
         serviceAlertData.alertId,
         token,
-        setfetching
+        setfetching,
       );
     } else {
-      setInputFields([{ script: "" }, { script: "" }, { script: "" }]);
+      setBlur(true) ;
+      setInputFields([{script :''},{script :''},{script :''}]);
     }
     setSuccess(false);
     // eslint-disable-next-line
@@ -94,7 +91,7 @@ const ScriptComponent = (props) => {
           {serviceAlertData.alertName}
         </h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={`${blur===true &&"Blur"}`}>
         {fetching  ? (
           <div className="fetching-spinner">
             <CircularProgress />
@@ -152,7 +149,7 @@ const ScriptComponent = (props) => {
           color="primary"
           type="submit"
           className="script-submit-btn"
-          disabled={sending||fetching}
+          disabled={sending||fetching||blur}
           style={{ textTransform: "none", fontSize: 18 }}
         >
           Save

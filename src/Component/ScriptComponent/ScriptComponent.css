@@ -17,6 +17,9 @@
   padding-top: 15px;
   margin-bottom: 20px;
 }
+.Blur{
+  filter: blur(0.2rem);
+}
 .fetching-spinner{
   height: 51vh;
   padding-left: 15px;

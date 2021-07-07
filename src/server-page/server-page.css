@@ -61,23 +61,30 @@
 .Logout-div {
   position: absolute;
   right: 4.5%;
-  top: 7%;
+  top: 7.5%;
 }
 .Jenkins{
   position: absolute;
   right: 12.5%;
-  top: 8%;
+  top: 8.5%;
 }
 .Grafana-dashboard{
   position: absolute;
-  right: 17.5%;
-  top: 8%;
+  right: 25.5%;
+  top: 8.5%;
 }  
-.Jenkins a ,.Grafana-dashboard a{
+.Sample-Jobs{
+  position: absolute;
+  right: 17.5%;
+  top: 8.5%;
+}
+.External-link a{
   color: black;
+  text-decoration: none ;
 } 
-a:hover{
-  color:rgb(5, 5, 219) ;
+.External-link a:hover{
+  color:rgb(20, 24, 247) ;
+  /* text-decoration: underline; */
 }
 .Logout-div-outer {
   display: none;
@@ -98,7 +105,7 @@ a:hover{
     margin-top: 20px;
     border-radius: 15px;
   }
-  .Grafana-dashboard,.Jenkins{
+  .Grafana-dashboard,.Jenkins,.Sample-Jobs{
     display: none ;
   }
 }
@@ -147,11 +154,15 @@ a:hover{
     height: fit-content;
   }
   .Grafana-dashboard{
-    right: 14.5%;
-    top: 19%;
+    right: 23.5%;
+    top: 18%;
   }
   .Jenkins{
     right: 7%;
-    top: 19%;
+    top: 18%;
+  }
+  .Sample-Jobs{
+    right: 14%;
+    top: 18%;
   }
 }

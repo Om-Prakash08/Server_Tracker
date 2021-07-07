@@ -32,11 +32,14 @@ const MainContent = (props) => {
       <div className="containt-heading-div">
         <h1 className="containt-heading">L2 Automation Portal</h1>
       </div>
-      <div className="Grafana-dashboard" >
-        <a href={`${process.env.REACT_APP_Grafana_Dashboard_URL}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>Grafana dashboard</a>
+      <div className="External-link Grafana-dashboard" >
+        <a href={`${process.env.REACT_APP_Grafana_Dashboard_URL}`} target="_blank" rel="noopener noreferrer" >Grafana dashboard</a>
       </div>
-      <div className="Jenkins" >
-      <a href={`${process.env.REACT_APP_Jenkins_Base_URL}/${service_name}`}target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>Jenkins</a>
+      <div className="External-link Jenkins" >
+      <a href={`${process.env.REACT_APP_Jenkins_Base_URL}/${service_name}`}target="_blank" rel="noopener noreferrer" >Jenkins</a>
+      </div>
+      <div className="External-link Sample-Jobs" >
+      <a href={`${process.env.REACT_APP_Sample_Jobs_URL}`}target="_blank" rel="noopener noreferrer" >Sample jobs</a>
       </div>
       <div className="Logout-div" onClick={logout}>
         <Button style={{ textTransform: "none", fontSize: 18 }}>

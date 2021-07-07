@@ -13,6 +13,8 @@ const ServerComponent = (props) => {
   const [serverList, setServerList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [invalidToken, setInValidity] = useState(false);
+  const [status ,setStatus] =useState(null) ;
+  const statusList =[{statusName:'prod',statusId:1},{statusName:'Staging',statusId:2},{statusName:'devop',statusId:3}]
   useEffect(() => {
     getServiceList(setServiceList, token, setLoading, setInValidity);
 
@@ -117,6 +119,10 @@ const ServerComponent = (props) => {
   const handleServerChange = (obj) => {
     setServer(obj);
   };
+  const handleStatusChange = (obj) => {
+    setStatus(obj);
+  };
+  
 
   return (
     <ServiceRenderPage
@@ -130,6 +136,9 @@ const ServerComponent = (props) => {
       serverList={serverList}
       handleServerChange={handleServerChange}
       loading={loading}
+      status={status}
+    statusList={statusList}
+    handleStatusChange={handleStatusChange}
     />
   );
 };

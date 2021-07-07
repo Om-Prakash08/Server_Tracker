@@ -11,7 +11,10 @@ const ServiceRenderPage = (props) => {
     server,
     serverList,
     handleServerChange,
-    loading
+    loading ,
+    status,
+    statusList ,
+    handleStatusChange
   } = props;
   const customStyles = {
     control: base => ({
@@ -24,9 +27,9 @@ const ServiceRenderPage = (props) => {
      <LoadingSpinner loading={loading}/>
       <div className="Dropdown-container">
         <div className="select-div">
-          <b style={{ margin: 4 }}>Service</b>
+          <b style={{ margin: 4 }}>Component</b>
           <Select
-            placeholder="Select Service"
+            placeholder="Select Component"
             value={service}
             options={serviceList}
             onChange={handleserviceChange}
@@ -78,6 +81,29 @@ const ServiceRenderPage = (props) => {
             onChange={handleServerChange}
             getOptionLabel={(x) => x.serverName}
             getOptionValue={(x) => x.serverId}
+            styles={customStyles}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 8,
+              colors: {
+                ...theme.colors,
+
+                neutral0: "white",
+                neutral50: "rgb(148, 3, 3)",
+              },
+            })}
+          />
+        </div>
+        <br/>
+        <div className="select-div">
+          <b style={{ margin: 4 }}>Status</b>
+          <Select
+            placeholder="Select Status"
+            value={status}
+            options={statusList}
+            onChange={handleStatusChange}
+            getOptionLabel={(x) => x.statusName}
+            getOptionValue={(x) => x.statusId}
             styles={customStyles}
             theme={(theme) => ({
               ...theme,
