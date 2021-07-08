@@ -52,9 +52,10 @@ const ScriptComponent = (props) => {
   };
 
   const handleInputChange = (index, event) => {
+     if(!blur){
     const values = [...inputFields];
     values[index].script = event.target.value;
-    setInputFields(values);
+    setInputFields(values);}
   };
 
   const handleSubmit = (e) => {
