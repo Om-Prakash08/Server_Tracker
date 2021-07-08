@@ -30,6 +30,7 @@ const ServiceRenderPage = (props) => {
           <b style={{ margin: 4 }}>Component</b>
           <Select
             placeholder="Select Component"
+            components={{  IndicatorSeparator:() => null }}
             value={service}
             options={serviceList}
             onChange={handleserviceChange}
@@ -41,7 +42,6 @@ const ServiceRenderPage = (props) => {
               borderRadius: 8,
               colors: {
                 ...theme.colors,
-
                 neutral0: "white",
                 neutral50: "rgb(148, 3, 3)",
               },
@@ -53,6 +53,7 @@ const ServiceRenderPage = (props) => {
           <b style={{ margin: 4 }}>Server Group</b>
           <Select
             placeholder="Select Server Group"
+            components={{  IndicatorSeparator:() => null }}
             value={group}
             options={groupList}
             onChange={handleGroupChange}
@@ -76,6 +77,7 @@ const ServiceRenderPage = (props) => {
           <b style={{ margin: 4 }}>Server</b>
           <Select
             placeholder="Select Server"
+            components={{  IndicatorSeparator:() => null }}
             value={server}
             options={serverList}
             onChange={handleServerChange}
@@ -99,6 +101,7 @@ const ServiceRenderPage = (props) => {
           <b style={{ margin: 4 }}>Status</b>
           <Select
             placeholder="Select Status"
+            components={{  IndicatorSeparator:() => null }}
             value={status}
             options={statusList}
             onChange={handleStatusChange}
