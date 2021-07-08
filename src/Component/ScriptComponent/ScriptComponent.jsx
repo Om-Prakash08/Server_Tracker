@@ -29,8 +29,8 @@ const ScriptComponent = (props) => {
     { id: 5, script: "script-5" },
     { id: 6, script: "script-6" },
     { id: 7, script: "script-7" },
-  ]; 
-  const emptyList =[] ;
+  ];
+  const emptyList = [];
   const customStyles = {
     control: (base) => ({
       ...base,
@@ -129,7 +129,7 @@ const ScriptComponent = (props) => {
                         value={scriptList.filter(
                           (obj) => obj.script === inputField.script
                         )}
-                        options={blur?emptyList:scriptList}
+                        options={blur ? emptyList : scriptList}
                         onChange={(obj) => handleInputChange(index, obj)}
                         getOptionLabel={(x) => x.script}
                         getOptionValue={(x) => x.id}
@@ -167,7 +167,7 @@ const ScriptComponent = (props) => {
                   </div>
                 </Fragment>
               ))}
-              <div style={{height:165}} ></div>
+              <div style={{ height: 165 }}></div>
             </div>
           </div>
         )}
