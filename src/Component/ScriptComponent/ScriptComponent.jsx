@@ -67,13 +67,14 @@ const ScriptComponent = (props) => {
     setInputFields(values);
   };
 
+
   const handleInputChange = (index, obj) => {
     if (!blur) {
       const values = [...inputFields];
       values[index].script = obj.script;
       setInputFields(values);
     }
-  };
+  
   const handleSubmit = (e) => {
     if (AlertType) {
       const data = {
