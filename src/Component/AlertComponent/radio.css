@@ -23,9 +23,22 @@
   border:1px solid rgb(216, 216, 216) ;
 }
 .selected-container {
-  background-color: rgb(253, 224, 224);
+  background-color: rgb(253, 224, 224) !important;
   border: solid 1px red;
+} 
+.Inactive-container{
+  background-color:yellow ;
 }
+.Active-container{
+  background-color:rgba(3, 5, 131, 0.671) !important ;
+}
+.Active-container .helper-text{
+  color:white ;
+}
+.Active-container .unselected {
+  border: 2px solid white;
+}
+
 
 
 .radio-outer-circle {

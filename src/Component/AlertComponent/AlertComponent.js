@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import Radio from "./Radio";
-import axios from "axios";
 import LoadingSpinner from "../loadingSpinner";
+import { getAlertList } from "./handleAlertApi";
 
 const AlertComponent = (props) => {
-  const { onChanged, serviceData, token} = props;
+  const { onChanged, serviceData, token,setAlertList,alertList} = props;
   const [serverIsSelected, setServerSelected] = useState(false);
-  const [alertList, setAlertList] = useState([]);
+  
   const [loading, setLoading] = useState(false);
   const [err,setErr]=useState(false) ;
   const [selected, setSelected] = useState({
@@ -14,23 +14,7 @@ const AlertComponent = (props) => {
     name: "",
   });
   useEffect(() => {
-    const getAlertList = async () => {
-      setLoading(true);
-      try {
-        const resp = await axios({
-          method: "GET",
-          url: `${process.env.REACT_APP_BACKEND_API_URL}/alert`,
-          headers: {
-            "x-auth-token": token,
-          },
-        });
-        setAlertList(resp.data);
-      } catch (err) {
-        //console.error(err);
-      }
-      setLoading(false);
-    };
-    getAlertList();
+    getAlertList(setLoading,setAlertList,token);
     setSelected({
       id: "",
       name: "",
@@ -70,6 +54,7 @@ const AlertComponent = (props) => {
             text={alert.alertName}
             first={alert === alertList[0]}
             onChange={setSelected}
+            status={alert.status}
             serverIsSelected={serverIsSelected}
             setErr={setErr} 
           />

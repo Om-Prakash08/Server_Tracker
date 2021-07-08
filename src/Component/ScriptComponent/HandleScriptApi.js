@@ -1,7 +1,13 @@
 import axios from "axios";
 
-const getScriptValue = async (setInputFields, serverId, alertId, token,setfetching) => {
-  setfetching(true) ;
+const getScriptValue = async (
+  setInputFields,
+  serverId,
+  alertId,
+  token,
+  setfetching
+) => {
+  setfetching(true);
   try {
     const resp = await axios({
       method: "get",
@@ -10,9 +16,9 @@ const getScriptValue = async (setInputFields, serverId, alertId, token,setfetchi
         "x-auth-token": token,
       },
       params: {
-        alert:alertId,
-        server:serverId
-      }
+        alert: alertId,
+        server: serverId,
+      },
     });
     const values = [];
     resp.data.sort(function (a, b) {
@@ -26,9 +32,9 @@ const getScriptValue = async (setInputFields, serverId, alertId, token,setfetchi
       setInputFields([{ script: "" }]);
     }
   } catch (err) {
-   // console.error(err);
+    // console.error(err);
   }
-  setfetching(false) ;
+  setfetching(false);
 };
 
 const sendScriptValue = async (
@@ -37,27 +43,43 @@ const sendScriptValue = async (
   setSuccess,
   data,
   token,
-  setLoading
+  setLoading,
+  setAlertList,
+  alertList
 ) => {
   SetSending(true);
   setApiError(false);
-  setLoading(true) ;
+  setLoading(true);
   try {
-   await axios({
+    await axios({
       method: "POST",
       url: `${process.env.REACT_APP_BACKEND_API_URL}/script/new`,
       data,
       headers: {
         "x-auth-token": token,
       },
-    }); 
+    });
     setSuccess(true);
+    const values = [...alertList];
+    if (!data.scripts.length) {
+      values.find((x) => x.alertId === data.alertId).status = false;
+    } else {
+      const result = data.scripts.find((obj) => {
+        return obj.script.length;
+      });
+      if (typeof result !== "undefined" && result) {
+        values.find((x) => x.alertId === data.alertId).status = true;
+      } else {
+        values.find((x) => x.alertId === data.alertId).status = false;
+      }
+    }
+    setAlertList(values);
   } catch (err) {
     if (err) setApiError(true);
     //console.error(err);
   }
   SetSending(false);
-  setLoading(false) ;
+  setLoading(false);
 };
 
 export { getScriptValue, sendScriptValue };
