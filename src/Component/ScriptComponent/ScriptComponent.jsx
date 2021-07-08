@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { getScriptValue, sendScriptValue } from "./HandleScriptApi";
 import LoadingSpinner from "../loadingSpinner";
 import { CircularProgress } from "@material-ui/core";
+import Select from "react-select";
 
 const ScriptComponent = (props) => {
   const { serviceAlertData, AlertType, token } = props;
@@ -19,21 +20,36 @@ const ScriptComponent = (props) => {
   const [loading, setLoading] = useState(false);
   const [fetching, setfetching] = useState(false);
   const [inputFields, setInputFields] = useState([]);
-  const [blur ,setBlur]=useState(false) ;
-
+  const [blur, setBlur] = useState(false);
+  const scriptList = [
+    { id: 1, script: "script-1" },
+    { id: 2, script: "script-2" },
+    { id: 3, script: "script-3" },
+    { id: 4, script: "script-4" },
+    { id: 5, script: "script-5" },
+    { id: 6, script: "script-6" },
+    { id: 7, script: "script-7" },
+  ]; 
+  const emptyList =[] ;
+  const customStyles = {
+    control: (base) => ({
+      ...base,
+      height: 45,
+    }),
+  };
   useEffect(() => {
     if (serviceAlertData.alertName && serviceAlertData.serverName) {
-      setBlur(false) ;
+      setBlur(false);
       getScriptValue(
         setInputFields,
         serviceAlertData.serverId,
         serviceAlertData.alertId,
         token,
-        setfetching,
+        setfetching
       );
     } else {
-      setBlur(true) ;
-      setInputFields([{script :''},{script :''},{script :''}]);
+      setBlur(true);
+      setInputFields([{ script: "" }]);
     }
     setSuccess(false);
     // eslint-disable-next-line
@@ -51,12 +67,13 @@ const ScriptComponent = (props) => {
     setInputFields(values);
   };
 
-  const handleInputChange = (index, event) => {
-    const values = [...inputFields];
-    values[index].script = event.target.value;
-    setInputFields(values);
+  const handleInputChange = (index, obj) => {
+    if (!blur) {
+      const values = [...inputFields];
+      values[index].script = obj.script;
+      setInputFields(values);
+    }
   };
-
   const handleSubmit = (e) => {
     if (AlertType) {
       const data = {
@@ -91,8 +108,8 @@ const ScriptComponent = (props) => {
           {serviceAlertData.alertName}
         </h1>
       </div>
-      <form onSubmit={handleSubmit} className={`${blur===true &&"Blur"}`}>
-        {fetching  ? (
+      <form onSubmit={handleSubmit} className={`${blur === true && "Blur"}`}>
+        {fetching ? (
           <div className="fetching-spinner">
             <CircularProgress />
           </div>
@@ -102,23 +119,33 @@ const ScriptComponent = (props) => {
               {inputFields.map((inputField, index) => (
                 <Fragment key={`${index}`}>
                   <div className="form-group ">
-                    <textarea
-                      type="text"
-                      cols="76"
-                      rows="2"
-                      className={
-                        index !== 0 && index !== inputFields.length - 1
-                          ? "textarea-input"
-                          : ""
-                      }
-                      id={index}
-                      name="script"
-                      placeholder={"Script " + JSON.stringify(index + 1)}
-                      value={inputField.script}
-                      onChange={(event) => handleInputChange(index, event)}
-                      autoComplete="off"
-                      data-gramm_editor="false"
-                    />
+                    <div className="Script-select">
+                      <Select
+                        placeholder="Select Script"
+                        components={{
+                          IndicatorSeparator: () => null,
+                          DropdownIndicator: () => null,
+                        }}
+                        value={scriptList.filter(
+                          (obj) => obj.script === inputField.script
+                        )}
+                        options={blur?emptyList:scriptList}
+                        onChange={(obj) => handleInputChange(index, obj)}
+                        getOptionLabel={(x) => x.script}
+                        getOptionValue={(x) => x.id}
+                        styles={customStyles}
+                        maxMenuHeight={165}
+                        theme={(theme) => ({
+                          ...theme,
+                          borderRadius: 8,
+                          colors: {
+                            ...theme.colors,
+                            neutral0: "white",
+                            neutral50: "rgb(148, 3, 3)",
+                          },
+                        })}
+                      />
+                    </div>
                     <IconButton
                       aria-label="delete"
                       className="delete-script-btn"
@@ -140,6 +167,7 @@ const ScriptComponent = (props) => {
                   </div>
                 </Fragment>
               ))}
+              <div style={{height:165}} ></div>
             </div>
           </div>
         )}
@@ -149,7 +177,7 @@ const ScriptComponent = (props) => {
           color="primary"
           type="submit"
           className="script-submit-btn"
-          disabled={sending||fetching||blur}
+          disabled={sending || fetching || blur}
           style={{ textTransform: "none", fontSize: 18 }}
         >
           Save

@@ -43,7 +43,7 @@ const MainContent = (props) => {
       </div>
       <div className="Logout-div" onClick={logout}>
         <Button style={{ textTransform: "none", fontSize: 18 }}>
-          <ExitToAppIcon fontSize="default" />
+          <ExitToAppIcon fontSize="medium" />
           Logout
         </Button>
       </div>

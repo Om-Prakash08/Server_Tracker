@@ -43,7 +43,7 @@ const sendScriptValue = async (
   setApiError(false);
   setLoading(true) ;
   try {
-    const resp = await axios({
+   await axios({
       method: "POST",
       url: `${process.env.REACT_APP_BACKEND_API_URL}/script/new`,
       data,
@@ -51,7 +51,6 @@ const sendScriptValue = async (
         "x-auth-token": token,
       },
     }); 
-    console.log(resp) ;
     setSuccess(true);
   } catch (err) {
     if (err) setApiError(true);
