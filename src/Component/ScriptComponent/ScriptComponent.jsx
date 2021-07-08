@@ -73,7 +73,7 @@ const ScriptComponent = (props) => {
       const values = [...inputFields];
       values[index].script = obj.script;
       setInputFields(values);
-    }
+    }}
   
   const handleSubmit = (e) => {
     if (AlertType) {
