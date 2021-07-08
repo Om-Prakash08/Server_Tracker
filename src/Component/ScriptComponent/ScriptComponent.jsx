@@ -12,7 +12,7 @@ import { CircularProgress } from "@material-ui/core";
 import Select from "react-select";
 
 const ScriptComponent = (props) => {
-  const { serviceAlertData, AlertType, token } = props;
+  const { serviceAlertData, AlertType, token ,setAlertList, alertList} = props;
   const [sending, SetSending] = useState(false);
   const [Apierror, setApiError] = useState(false);
   const [emptyAlertError, setEmptyAlertError] = useState(false);
@@ -73,7 +73,7 @@ const ScriptComponent = (props) => {
       const values = [...inputFields];
       values[index].script = obj.script;
       setInputFields(values);
-    }
+    }}
   
   const handleSubmit = (e) => {
     if (AlertType) {
@@ -81,14 +81,17 @@ const ScriptComponent = (props) => {
         alertId: serviceAlertData.alertId,
         serverId: serviceAlertData.serverId,
         scripts: inputFields,
-      };
+      };if(!data.scripts.length)
+      { console.log("empty") ;
+        data.scripts=[{script:""}] ;
+      }
       sendScriptValue(
         SetSending,
         setApiError,
         setSuccess,
         data,
         token,
-        setLoading
+        setLoading,setAlertList, alertList
       );
       setEmptyAlertError(false);
     } else {

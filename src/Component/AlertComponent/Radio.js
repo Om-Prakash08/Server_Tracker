@@ -2,9 +2,9 @@ import React from "react";
 import "./radio.css";
 
 const Radio = (props) => {
-  const { selected, onChange, text, value, id,first,serverIsSelected ,setErr} = props;
+  const { selected, onChange, text, value, id,first,serverIsSelected ,setErr,status} = props;
   return (
-    <div className={`modern-radio-container ${value === selected.name && "selected-container"} ${first && "first-container"}`}
+    <div className={`modern-radio-container ${value === selected.name && "selected-container"} ${status&& "Active-container"} ${first && "first-container"}`}
       onClick={() => {
         if(serverIsSelected)
          onChange({ id: id, name: value });
