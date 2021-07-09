@@ -185,7 +185,7 @@ const ScriptComponent = (props) => {
           type="submit"
           className="script-submit-btn"
           disabled={sending || fetching || blur}
-          style={{ textTransform: "none", fontSize: 18 }}
+          style={{ textTransform: "none", fontSize: 15 }}
         >
           Save
         </Button>

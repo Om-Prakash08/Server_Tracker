@@ -27,25 +27,22 @@
   background-color: rgb(253, 224, 224) !important;
   border: solid 1px red;
 } 
-/* .Inactive-container{
-  background-color:yellow ;
-}
-.Active-container{
-  background-color:rgba(3, 5, 131, 0.671) !important ;
-}
-.Active-container .helper-text{
-  color:white ;
-}
-.Active-container .unselected {
-  border: 2px solid white;
-} */
 .Active-status{
+  background-color:rgb(2, 59, 163);
   position:absolute ;
-  right:2px ;
-  top:0;
+  right:4px ;
+  top:2px;
+  height:1.1rem ;
+  border-radius:3px ;
+  display: flex;
+  padding: 12px 3px 0 3px;
+  align-items: center ;
+  border:1px solid black ;
 }
-
-
+.Active-status p{
+  color:white ;
+  font-size: 0.65rem;
+}
 
 .radio-outer-circle {
   width: 20px;

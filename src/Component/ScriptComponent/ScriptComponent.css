@@ -13,7 +13,7 @@
 }
 .script-form-div {
   overflow: auto;
-  height: 52vh;
+  height: 53vh;
   padding-left: 15px;
   padding-top: 15px;
   margin-bottom: 20px;
@@ -22,7 +22,7 @@
   filter: blur(0.0rem);
 }
 .fetching-spinner {
-  height: 52vh;
+  height: 53vh;
   padding-left: 15px;
   padding-top: 15px;
   margin-bottom: 20px;
