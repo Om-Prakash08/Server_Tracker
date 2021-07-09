@@ -61,22 +61,22 @@
 .Logout-div {
   position: absolute;
   right: 4.5%;
-  top: 7.5%;
+  top: 55px;
 }
 .Jenkins{
   position: absolute;
   right: 12.5%;
-  top: 8.5%;
+  top: 63px;
 }
 .Grafana-dashboard{
   position: absolute;
   right: 25.5%;
-  top: 8.5%;
+  top: 63px;
 }  
 .Sample-Jobs{
   position: absolute;
   right: 17.5%;
-  top: 8.5%;
+  top: 63px;
 }
 .External-link a{
   color: black;
@@ -92,7 +92,7 @@
 
 @media screen and (max-width: 992px) {
   .containt {
-    height: 1600px;
+    height: 1700px;
   }
   .three-part-outer-div {
     height: 1000px;
@@ -154,15 +154,15 @@
     height: fit-content;
   }
   .Grafana-dashboard{
-    right: 23.5%;
-    top: 18%;
+    right: 24.5%;
+    top: 100px;
   }
   .Jenkins{
     right: 7%;
-    top: 18%;
+    top: 100px;
   }
   .Sample-Jobs{
     right: 14%;
-    top: 18%;
+    top: 100px;
   }
 }

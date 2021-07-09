@@ -19,7 +19,7 @@ const getAlertList = async (setLoading,setAlertList,token) => {
     }
     setLoading(false);
   };
-  const getAlertStatus = async (token,serverId,setAlertList,alertList) => {
+const getAlertStatus = async (token,serverId,setAlertList,alertList) => {
     //setLoading(true);
     try {
       const resp = await axios({
@@ -29,7 +29,7 @@ const getAlertList = async (setLoading,setAlertList,token) => {
           "x-auth-token": token,
         },
       });
-      console.log(resp.data) ;
+     // console.log(resp.data) ;
       const arr=alertList ;
       resp.data.forEach(function(r){
         arr.find(x => x.alertId=== r.alertId).status=true ;
