@@ -56,15 +56,17 @@ const ScriptComponent = (props) => {
   }, [serviceAlertData.alertName, serviceAlertData.serverName]);
 
   const handleAddFields = (index) => {
+    if(!blur){
     const values = [...inputFields];
     values.splice(index + 1, 0, { script: "" });
-    setInputFields(values);
+    setInputFields(values);}
   };
 
   const handleRemoveFields = (index) => {
-    const values = [...inputFields];
+    if(!blur)
+    {const values = [...inputFields];
     values.splice(index, 1);
-    setInputFields(values);
+    setInputFields(values);}
   };
 
 
@@ -167,7 +169,7 @@ const ScriptComponent = (props) => {
                       type="button"
                       onClick={() => handleAddFields(index)}
                     >
-                      <AddIcon />
+                      <AddIcon style={{fontSize:22}} />
                     </Fab>
                   </div>
                 </Fragment>
