@@ -19,7 +19,7 @@ const getAlertList = async (setLoading,setAlertList,token) => {
     }
     setLoading(false);
   };
-  const getAlertStatus = async (token,serverId,setAlertList,alertList) => {
+const getAlertStatus = async (token,serverId,setAlertList,alertList) => {
     //setLoading(true);
     try {
       const resp = await axios({

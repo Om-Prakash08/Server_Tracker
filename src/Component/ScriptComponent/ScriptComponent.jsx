@@ -73,6 +73,7 @@ const ScriptComponent = (props) => {
       const values = [...inputFields];
       values[index].script = obj.script;
       setInputFields(values);
+      setSuccess(false) ;
     }}
   
   const handleSubmit = (e) => {
