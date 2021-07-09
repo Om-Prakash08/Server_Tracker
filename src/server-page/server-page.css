@@ -142,7 +142,7 @@
     top:4% ;
   }
   .error-occured {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
   }
 }
 @media screen and (max-width: 1400px) and (min-width: 992px) {
