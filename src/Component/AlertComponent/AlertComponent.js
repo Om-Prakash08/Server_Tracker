@@ -63,7 +63,7 @@ const AlertComponent = (props) => {
       </div>
       <div className="error-occured">
         {!serverIsSelected && err &&(
-          <p  style={{ marginTop: 8 }}>
+          <p  style={{ marginTop: 0 }}>
             Please select server first.
           </p>
         )}
