@@ -108,6 +108,9 @@
   .Grafana-dashboard,.Jenkins,.Sample-Jobs{
     display: none ;
   }
+  .first-container{
+    border-top-right-radius:8px ;
+  }
 }
 @media screen and (max-width: 1400px) {
 
@@ -124,9 +127,6 @@
     font-size: 2rem;
     margin-bottom: 0;
   }
-  /* .containt-heading-div{
-    text-align: center;
-  } */
   .first,
   .second,
   .third {
@@ -145,8 +145,6 @@
   .error-occured {
     margin-bottom: 10px;
   }
-  
-
 }
 @media screen and (max-width: 1400px) and (min-width: 992px) {
   .containt {

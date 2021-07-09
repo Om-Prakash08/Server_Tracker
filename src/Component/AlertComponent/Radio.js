@@ -1,7 +1,6 @@
 import React from "react";
 import "./radio.css";
-// import CheckIcon from '@material-ui/icons/Check';
-import CloudDoneIcon from '@material-ui/icons/CloudDone';
+
 
 const Radio = (props) => {
   const { selected, onChange, text, value, id,first,serverIsSelected ,setErr,status} = props;
@@ -20,8 +19,8 @@ const Radio = (props) => {
         <div className={`helper-text ${value === selected.name && "helper-selected-text"}`}>
           {text}
         </div>
-        {status&&<div className="Active-status">
-        <CloudDoneIcon style={{fill: "black",fontSize: 20}} />
+        {status &&<div className="Active-status">
+           <p>active</p>
         </div>}
     </div>
   );
