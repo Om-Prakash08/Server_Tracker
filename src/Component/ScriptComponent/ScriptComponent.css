@@ -19,7 +19,7 @@
   margin-bottom: 20px;
 }
 .Blur {
-  filter: blur(0rem);
+  filter: blur(0.0rem);
 }
 .fetching-spinner {
   height: 52vh;
