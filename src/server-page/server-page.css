@@ -92,7 +92,7 @@
 
 @media screen and (max-width: 992px) {
   .containt {
-    height: 1700px;
+    height: 1750px;
   }
   .three-part-outer-div {
     height: 1000px;
@@ -113,7 +113,6 @@
   }
 }
 @media screen and (max-width: 1400px) {
-
   .logo-png {
     margin-top: 0;
     margin-bottom: 0.6rem;

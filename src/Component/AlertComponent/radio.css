@@ -1,6 +1,6 @@
 .radio-container {
   overflow: auto;
-  height:67vh ;
+  height:480px ;
 }
 .radio-container::-webkit-scrollbar {
   width: 2px;
@@ -76,4 +76,9 @@
 }
 .helper-selected-text {
   color: red;
+}
+@media screen and (max-width: 1400px) and (min-width: 992px) {
+  .radio-container {
+    height:510px ;
+  }
 }
