@@ -21,7 +21,7 @@ const Radio = (props) => {
           {text}
         </div>
         {status&&<div className="Active-status">
-        <CloudDoneIcon style={{fill: "black"}}/>
+        <CloudDoneIcon style={{fill: "black",fontSize: 20}} />
         </div>}
     </div>
   );

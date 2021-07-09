@@ -29,7 +29,7 @@ const getAlertStatus = async (token,serverId,setAlertList,alertList) => {
           "x-auth-token": token,
         },
       });
-      console.log(resp.data) ;
+     // console.log(resp.data) ;
       const arr=alertList ;
       resp.data.forEach(function(r){
         arr.find(x => x.alertId=== r.alertId).status=true ;
