@@ -37,6 +37,7 @@ const ServiceRenderPage = (props) => {
             getOptionLabel={(x) => x.serviceName}
             getOptionValue={(x) => x.serviceId}
             styles={customStyles}
+            maxMenuHeight={205}
             theme={(theme) => ({
               ...theme,
               borderRadius: 8,
@@ -60,6 +61,7 @@ const ServiceRenderPage = (props) => {
             getOptionLabel={(x) => x.statusName}
             getOptionValue={(x) => x.statusId}
             styles={customStyles}
+            maxMenuHeight={205}
             theme={(theme) => ({
               ...theme,
               borderRadius: 8,
@@ -84,6 +86,7 @@ const ServiceRenderPage = (props) => {
             getOptionLabel={(x) => x.serverGrpName}
             getOptionValue={(x) => x.serverGrpId}
             styles={customStyles}
+            maxMenuHeight={195}
             theme={(theme) => ({
               ...theme,
               borderRadius: 8,
@@ -108,6 +111,7 @@ const ServiceRenderPage = (props) => {
             getOptionLabel={(x) => x.serverName}
             getOptionValue={(x) => x.serverId}
             styles={customStyles}
+            maxMenuHeight={135}
             theme={(theme) => ({
               ...theme,
               borderRadius: 8,
