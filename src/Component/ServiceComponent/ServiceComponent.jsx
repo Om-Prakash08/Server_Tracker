@@ -14,7 +14,7 @@ const ServerComponent = (props) => {
   const [loading, setLoading] = useState(false);
   const [invalidToken, setInValidity] = useState(false);
   const [status ,setStatus] =useState(null) ;
-  const statusList =[{statusName:'prod',statusId:1},{statusName:'Staging',statusId:2},{statusName:'devop',statusId:3}]
+  const statusList =[{statusName:'prod',statusId:1},{statusName:'devop',statusId:2}]
   useEffect(() => {
     getServiceList(setServiceList, token, setLoading, setInValidity);
 
