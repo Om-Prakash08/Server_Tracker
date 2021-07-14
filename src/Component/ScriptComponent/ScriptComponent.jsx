@@ -128,7 +128,7 @@ const ScriptComponent = (props) => {
                   <div className="form-group ">
                     <div className="Script-select">
                       <Select
-                        placeholder="Select Script"
+                        placeholder={`${blur===false?"Select Script":""}`}
                         components={{
                           IndicatorSeparator: () => null,
                           DropdownIndicator: () => null,
@@ -136,6 +136,7 @@ const ScriptComponent = (props) => {
                         value={scriptList.filter(
                           (obj) => obj.script === inputField.script
                         )}
+                        disabled={true}
                         options={blur ? emptyList : scriptList}
                         onChange={(obj) => handleInputChange(index, obj)}
                         getOptionLabel={(x) => x.script}
