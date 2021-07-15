@@ -43,6 +43,7 @@
   border-bottom-left-radius: 15px;
   background-color: rgba(238, 235, 235, 0.253);
   z-index: 40;
+  overflow:hidden ;
 }
 .third {
   padding: 1rem 0 1.5rem;
