@@ -4,9 +4,8 @@ import LoadingSpinner from "../loadingSpinner";
 import { getAlertList } from "./handleAlertApi";
 
 const AlertComponent = (props) => {
-  const { onChanged, serviceData, token,setAlertList,alertList} = props;
+  const {onChanged, serviceData, token,setAlertList,alertList} = props;
   const [serverIsSelected, setServerSelected] = useState(false);
-  
   const [loading, setLoading] = useState(false);
   const [err,setErr]=useState(false) ;
   const [selected, setSelected] = useState({

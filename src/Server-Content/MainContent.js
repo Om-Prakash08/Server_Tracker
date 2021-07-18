@@ -11,6 +11,7 @@ const MainContent = (props) => {
   const [serverSelected, setServerSelected] = useState(false);
   const [service_name, setService_name] = useState("");
   const [alertList, setAlertList] = useState([]);
+  const [jenkinsJob,setJenkinsJob]=useState([]) ;
   const [serviceAlertData, setServiceAlertData] = useState({
     serviceId: "",
     ServiceName: "",
@@ -74,6 +75,7 @@ const MainContent = (props) => {
           setServiceData={setServiceAlertData}
           serviceData={serviceAlertData}
           logout={logout}
+          setJenkinsJob={setJenkinsJob}
           setServiceName={setService_name}
         />
         <AlertComponent
@@ -90,6 +92,7 @@ const MainContent = (props) => {
           AlertType={serviceAlertData.alertName}
           setAlertList={setAlertList} 
           alertList={alertList}
+          jenkinsJob={jenkinsJob}
         />
       </div>
     </div>

@@ -21,6 +21,7 @@ const ScriptComponent = (props) => {
   const [fetching, setfetching] = useState(false);
   const [inputFields, setInputFields] = useState([]);
   const [blur, setBlur] = useState(false);
+  // const {scriptList} =props ;
   const scriptList = [
     { id: 1, script: "script-1" },
     { id: 2, script: "script-2" },

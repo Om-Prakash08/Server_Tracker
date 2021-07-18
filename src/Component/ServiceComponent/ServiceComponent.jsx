@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./ServiceComponent.css";
 import ServiceRenderPage from "./serviceRenderPage";
-import { getServiceList, getGroupList, getServerList } from "./fetchServerList";
+import { getServiceList, getGroupList, getServerList ,getJenkinsJobs} from "./fetchServerList";
 
 const ServerComponent = (props) => {
-  const { setServiceData, serviceData, token, logout,setServiceName } = props;
+  const { setServiceData, serviceData, token, logout, setServiceName, setJenkinsJob } = props;
   const [service, setService] = useState(null);
   const [serviceList, setServiceList] = useState([]);
   const [group, setGroup] = useState(null);
@@ -13,11 +13,13 @@ const ServerComponent = (props) => {
   const [serverList, setServerList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [invalidToken, setInValidity] = useState(false);
-  const [status ,setStatus] =useState(null) ;
-  const statusList =[{statusName:'prod',statusId:1},{statusName:'devop',statusId:2}]
+  const [status, setStatus] = useState(null);
+  const statusList = [
+    { statusName: "production", statusId: 1 },
+    { statusName: "development", statusId: 2 },
+  ];
   useEffect(() => {
     getServiceList(setServiceList, token, setLoading, setInValidity);
-
     // eslint-disable-next-line
   }, []);
   useEffect(() => {
@@ -27,8 +29,6 @@ const ServerComponent = (props) => {
 
   useEffect(() => {
     if (service) {
-      getGroupList(setGroupList, service, token, setLoading);
-
       setServiceData({
         serviceId: service.serviceId,
         serviceName: service.ServiceName,
@@ -52,6 +52,12 @@ const ServerComponent = (props) => {
       });
     } // eslint-disable-next-line
   }, [service]);
+  useEffect(() => {
+    if (status && service) {
+      getGroupList(setGroupList, service, token, setLoading);
+      getJenkinsJobs(setJenkinsJob,service,status,token,setLoading)
+    } // eslint-disable-next-line
+  }, [status, service]);
 
   useEffect(() => {
     if (group) {
@@ -106,7 +112,7 @@ const ServerComponent = (props) => {
   // handle change event of the service dropdown
   const handleserviceChange = (obj) => {
     setService(obj);
-    setServiceName(obj.serviceName.toLowerCase())
+    setServiceName(obj.serviceName.toLowerCase());
     setGroup(null);
   };
 
@@ -122,7 +128,6 @@ const ServerComponent = (props) => {
   const handleStatusChange = (obj) => {
     setStatus(obj);
   };
-  
 
   return (
     <ServiceRenderPage
@@ -137,8 +142,8 @@ const ServerComponent = (props) => {
       handleServerChange={handleServerChange}
       loading={loading}
       status={status}
-    statusList={statusList}
-    handleStatusChange={handleStatusChange}
+      statusList={statusList}
+      handleStatusChange={handleStatusChange}
     />
   );
 };
