@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import { TextField, InputAdornment } from "@material-ui/core";
 import "./LoginPage.css";
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 import VisibilityIcon from "@material-ui/icons/Visibility";
 
 const LoginPageRender = (props) => {
@@ -57,7 +57,7 @@ const LoginPageRender = (props) => {
             ),
           }}
         />
-
+       
         <div className="login-div-btn">
           <Button
             variant="contained"
@@ -67,7 +67,8 @@ const LoginPageRender = (props) => {
             className="login-btn"
             disabled={loading}
             style={{ margin: 20 }}
-          >
+          > 
+           {loading&&<CircularProgress disableShrink size={18} thickness={8} style={{position:"relative", right:8,color: 'white'}}/>}
             Login
           </Button>
         </div>
